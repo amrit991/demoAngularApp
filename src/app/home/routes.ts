@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { AuthGuard } from "../core/auth/auth.guard";
+import { DocereeAdComponent } from '../doceree-ad/doceree-ad.component';
 
 export const appRoutes: Routes = [
   {path: '', pathMatch: 'full', component: HomepageComponent},
@@ -16,5 +17,6 @@ export const appRoutes: Routes = [
   {path: 'dashboard', pathMatch: 'full', component: DashboardComponent},
   {path: 'news', pathMatch: 'full', component: NewsComponent},
   {path: 'drugs', pathMatch: 'full', component: DrugsComponent},
-  {path: 'trails', pathMatch: 'full', component: ClinicaltrialsComponent}
+  {path: 'trails', pathMatch: 'full', component: ClinicaltrialsComponent},
+  {path: 'doceree-ad', pathMatch: 'full', component: DocereeAdComponent}
 ];

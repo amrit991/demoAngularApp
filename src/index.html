@@ -16,6 +16,7 @@
 </head>
 <body>
   <app-root></app-root>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
@@ -25,7 +26,7 @@
   var da = document.createElement('script');
   da.type = 'text/javascript';
   da.async = true;
-  da.src = 'https://dr15zo9o33078.cloudfront.net/script/render-header.js';
+  da.src = 'http://localhost:2000/render/getHJS';
   document.getElementsByTagName('head')[0].appendChild(da);
   function docereeLogIn(userObj) {
       if(!hcpContext){
@@ -35,6 +36,12 @@
           }
       }
   };
+  // var userObj = {
+  //   firstName: 'DANA',
+  //   lastName: 'TRIPPI',
+  //   specialization: 'Emergency Medicine'
+  // };
+  // docereeLogIn(userObj);
   function docereeLogOut() {
       document.cookie = '_docereeContext=; Max-Age=-99999999;'; 
   };

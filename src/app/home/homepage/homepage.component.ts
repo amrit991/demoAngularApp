@@ -16,6 +16,7 @@ export class HomepageComponent implements OnInit {
   cookieIndicator: boolean;
   userObj: string;
   userObjHashed: string;
+  docereeDMDContext: string;
   constructor(private router: Router, public fb: FormBuilder,private cookieService: CookieService) {
     
     router.events.subscribe( (event: Event) =>  {
@@ -23,6 +24,8 @@ export class HomepageComponent implements OnInit {
             // Navigation Ended Successfully.
             console.log(event.url);
             this.cookieValue = this.cookieService.get('_docereeContext');
+            console.log('>>',JSON.stringify(this.cookieService.get('_docereeDmdContext')));
+            this.docereeDMDContext = this.cookieService.get('_docereeDmdContext');
             console.log('cookie Value: ', this.cookieValue);
             if(this.cookieValue === '') {
               this.cookieIndicator = false;

@@ -154,9 +154,9 @@ margin: 0;" class="sea">
                   <mat-card-title>
                     Active - {{country}} 
                   </mat-card-title>
-                  <mat-card-subtitle>_docereeContext Set</mat-card-subtitle>
+                  <mat-card-subtitle>cookies Set</mat-card-subtitle>
                 </mat-card-header>
-
+                <b>_docereeContext</b>
                     <mat-form-field appearance="outline">
                         <mat-label>HCP details</mat-label>
                         <textarea type="text" cdkTextareaAutosize
@@ -172,6 +172,20 @@ margin: 0;" class="sea">
                             cdkAutosizeMaxRows="5"matInput [value]="userObjHashed" readonly></textarea>
                         </mat-form-field>
                     </div>
+                    <br/>
+                    <br/>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>DMD Cookie: _docereeDMDContext</mat-label>
+                        <textarea type="text" cdkTextareaAutosize
+                        cdkAutosizeMinRows="4"
+                        cdkAutosizeMaxRows="5" matInput [value]="docereeDMDContext" readonly></textarea>
+                    </mat-form-field>
+                    <br/>
+                    <div>
+                    </div>
+
+
               </mat-card>
         </div>
     

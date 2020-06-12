@@ -12,7 +12,7 @@ export class DocereeAdComponent implements OnInit {
 
   ngOnInit() {
     console.log('first')
-    this.loadScriptForDivData();
+    //this.loadScriptForDivData();
     setTimeout(() => {
       console.log('2nd load')
       this.loadScriptForDivData2();
@@ -31,15 +31,15 @@ export class DocereeAdComponent implements OnInit {
     const script = document.createElement('script');
     script.innerText = "var docCont={contet_id:'DOC_fg95yysk21ib1qg',content_sizes:['200 x 200'],content_type:'img'};";  
     el.appendChild(script);
-    this.loadScript('https://dev-programmatic.doceree.com/render/getJS');
+    this.loadScript('http://localhost:2000/render/getJS');
   }
 
   public loadScriptForDivData2() {
-    const el = <HTMLDivElement> document.getElementById('DOC_fg95yysk21n1dl7');
+    const el = <HTMLDivElement> document.getElementById('DOC_9fhirh4skb1q0c1d');
     const script = document.createElement('script');
-    script.innerText = "var docCont={contet_id:'DOC_fg95yysk21n1dl7',content_sizes:['468 x 60'],content_type:'img'};";  
+    script.innerText = "var docCont={contet_id:'DOC_9fhirh4skb1q0c1d',content_sizes:['250 x 250'],content_type:'img'};";  
     el.appendChild(script);
-    this.loadScript('https://dev-programmatic.doceree.com/render/getJS');
+    this.loadScript('http://localhost:2000/render/getJS');
   }
 
   public loginToDoceree() {
