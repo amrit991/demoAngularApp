@@ -45,6 +45,66 @@
   function docereeLogOut() {
       document.cookie = '_docereeContext=; Max-Age=-99999999;'; 
   };
+
+  function getHCPFromPublisherPage(callback) {
+  let docereeScriptVersion = '0.1';
+  let hcpData = {};
+  hcpData['version'] = docereeScriptVersion;
+
+  let cookieContent = getCookie('_docereeId');
+  if (!!cookieContent) {
+    cookieContent = JSON.parse(cookieContent)
+    if (cookieContent.version == docereeScriptVersion) {
+      hcpData['platformUid'] = cookieContent.platformUid;
+    }
+  }
+
+  let encryptedContextSet = getCookie('_docereeContext');
+  if (!!encryptedContextSet) {
+    let contextSet = JSON.parse(decodeURIComponent(atob(encryptedContextSet)));
+    hcpData['email'] = contextSet['email'];
+    hcpData['firstName'] = contextSet['firstName'];
+    hcpData['lastName'] = contextSet['lastName'];
+    hcpData['specialization'] = contextSet['specialization'];
+    hcpData['city'] = contextSet['city'];
+    hcpData['zipCode'] = contextSet['zipCode'];
+    hcpData['npi'] = contextSet['npi'];
+    hcpData['hashedNPI'] = contextSet['hashedNPI'];
+    hcpData['gender'] = contextSet['gender'];
+    hcpData['mciRegistrationNumber'] = contextSet['mciRegistrationNumber'];
+  } else {
+    // INFO: this indicates that the user context is not set, i.e. HCP may have clicked logout. In this case, we have to remove the _docereeId cookie
+    eraseCookie('_docereeContext');
+  }
+
+  let dmdEncryptedContext = getCookie('_docereeDmdContext');
+  if (!!dmdEncryptedContext) {
+    let dmdData = JSON.parse(decodeURIComponent(atob(dmdEncryptedContext)));
+    hcpData['dmd'] = dmdData;
+  } else {
+    // INFO: this indicates that the dmd context is not set
+    eraseCookie('_docereeDmdContext');
+  }
+
+  hcpData = JSON.stringify(hcpData);
+  let encryptedHCP = btoa(encodeURIComponent(hcpData));
+  callback(encryptedHCP);
+};
+
+function getCookie(name) {
+  let nameEQ = name + "=";
+  let ca = document.cookie.split(';');
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+  }
+  return null;
+};
+
+function eraseCookie(name) {
+  document.cookie = name + '=; Max-Age=-99999999;';
+};
   </script>
 
 
