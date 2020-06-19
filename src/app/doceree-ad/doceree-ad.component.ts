@@ -38,7 +38,7 @@ export class DocereeAdComponent implements OnInit {
     const el = <HTMLDivElement> document.getElementById('DOC_9fhirh4skb1q0c1d');
     const script = document.createElement('script');
     script.innerText = "var docCont={contet_id:'DOC_9fhirh4skb1q0c1d',content_sizes:['250 x 250'],content_type:'img'};";  
-    el.appendChild(script);
+    el.appendChild(script); 
     this.loadScript('http://localhost:2000/render/getJS');
   }
 

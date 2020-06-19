@@ -69,7 +69,7 @@ export class HomepageComponent implements OnInit {
   el.innerText = "docereeLogIn(" + JSON.stringify(userObj) + ");"
   body.appendChild(el);
   console.log('appending login');
-  this.router.navigate(["../news"]);
+  this.router.navigate(["../trails"]);
   }
   /*########### Template Driven Form ###########*/
   docereeContextIndia = this.fb.group({
@@ -150,7 +150,7 @@ export class HomepageComponent implements OnInit {
       body.appendChild(el);
       localStorage.setItem('country', 'India');
       console.log('logging in docereeContext');
-      this.router.navigate(["../news"]);
+      this.router.navigate(["../trails"]);
     }
 
   }
