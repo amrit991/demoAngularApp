@@ -24,9 +24,9 @@ export class HomepageComponent implements OnInit {
             // Navigation Ended Successfully.
             console.log(event.url);
             this.cookieValue = this.cookieService.get('_docereeContext');
-            console.log('>>',JSON.stringify(this.cookieService.get('_docereeDmdContext')));
+            //console.log('>>',JSON.stringify(this.cookieService.get('_docereeDmdContext')));
             this.docereeDMDContext = this.cookieService.get('_docereeDmdContext');
-            console.log('cookie Value: ', this.cookieValue);
+            //console.log('cookie Value: ', this.cookieValue);
             if(this.cookieValue === '') {
               this.cookieIndicator = false;
             } else {
@@ -129,7 +129,7 @@ export class HomepageComponent implements OnInit {
       el.innerText = "docereeLogIn(" + JSON.stringify(userObj) + ");"
       body.appendChild(el);
       localStorage.setItem('country', 'US');
-      console.log('logging in docereeContext');
+      console.log('logging in docereeContext - US');
       this.router.navigate(["../news"]);
     } else {
       const body = <HTMLDivElement> document.body;
@@ -149,7 +149,7 @@ export class HomepageComponent implements OnInit {
       el.innerText = "docereeLogIn(" + JSON.stringify(userObj) + ");"
       body.appendChild(el);
       localStorage.setItem('country', 'India');
-      console.log('logging in docereeContext');
+      console.log('logging in docereeContext - India');
       this.router.navigate(["../trails"]);
     }
 
